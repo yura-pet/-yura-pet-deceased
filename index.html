@@ -581,9 +581,10 @@ body,p,li,h3,.item,.note,.qa,.q,.a,.price,.chips,.chip,.important-list,span,b,la
         <h2>預約資訊</h2>
         <form class="form-grid" id="deceasedBooking" onsubmit="return false;">
           <div class="form-field">
-            <label for="d_name">寵物寶貝名稱</label>
+            <label for="d_name">毛孩名稱</label>
             <input id="d_name" type="text" placeholder="請填毛孩名字">
           </div>
+
           <div class="form-field">
             <label for="d_service">服務類型</label>
             <select id="d_service">
@@ -592,16 +593,43 @@ body,p,li,h3,.item,.note,.qa,.q,.a,.price,.chips,.chip,.important-list,span,b,la
               <option>離世溝通＋超度</option>
             </select>
           </div>
+
+          <div class="form-field">
+            <label for="d_method">溝通方式</label>
+            <select id="d_method">
+              <option value="">請選擇</option>
+              <option>照片＋視訊</option>
+              <option>照片＋文字</option>
+              <option>語音＋照片</option>
+            </select>
+          </div>
+
           <div class="form-field">
             <label for="d_date">離世時間</label>
             <input id="d_date" type="text" placeholder="例如：2026/08/01">
           </div>
+
           <div class="form-field">
-            <label for="d_time">可配合預約時段</label>
-            <textarea id="d_time" placeholder="可以填 1～2 個方便的日期與時段"></textarea>
+            <label for="d_questions">想詢問的內容</label>
+            <textarea id="d_questions" placeholder="可以先把想詢問毛孩的內容整理在這裡"></textarea>
           </div>
+
+          <div class="form-field">
+            <label for="d_time1">可配合時段 ①</label>
+            <input id="d_time1" type="text" placeholder="例如：8/18 14:00～17:00">
+          </div>
+
+          <div class="form-field">
+            <label for="d_time2">可配合時段 ②</label>
+            <input id="d_time2" type="text" placeholder="例如：8/20 19:00 之後">
+          </div>
+
           <div class="form-help">毛孩照片請回到 LINE 後一併傳送。填完後按下方按鈕即可複製。</div>
-          <button class="copy-button" type="button" onclick="yuraCopy('deceasedBooking','deceasedCopyStatus','【離世寵物溝通｜預約資料】', [['d_name','寵物寶貝名稱'],['d_service','服務類型'],['d_date','離世時間'],['d_time','可配合預約時段']])">複製預約資料</button>
+
+          <button class="copy-button" type="button"
+            onclick="yuraCopy('deceasedBooking','deceasedCopyStatus','【離世寵物溝通｜預約資料】', [['d_name','毛孩名稱'],['d_service','服務類型'],['d_method','溝通方式'],['d_date','離世時間'],['d_questions','想詢問的內容'],['d_time1','可配合時段①'],['d_time2','可配合時段②']])">
+            複製預約資料
+          </button>
           <div class="copy-status" id="deceasedCopyStatus" aria-live="polite"></div>
         </form>
         <div class="note">看完之後，回到 LINE 跟我說一聲。我會把最近還剩下的時間給你挑，時間確定了，再談匯款。若不確定是否適合預約，歡迎先詢問。</div>
