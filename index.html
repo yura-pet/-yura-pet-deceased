@@ -11,16 +11,16 @@
   font-family: "ChenYuluoyan";
   src: url("./ChenYuluoyan.woff2") format("woff2");
   font-style: normal;
-  font-weight: 100 900;
-  font-display: block;
+  font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Iansui";
   src: url("./Iansui.woff2") format("woff2");
   font-style: normal;
-  font-weight: 100 900;
-  font-display: block;
+  font-weight: 400;
+  font-display: swap;
 }
 
 :root{
@@ -33,9 +33,9 @@
   --white-card:rgba(255,250,246,.90);
   --line:rgba(126,149,174,.20);
   --shadow:0 16px 38px rgba(120,92,72,.12);
-  --title-font:"ChenYuluoyan","Noto Serif TC","PingFang TC",serif;
+  --title-font:"ChenYuluoyan","PingFang TC","Noto Serif TC",serif;
   --body-font:"Iansui","PingFang TC","Noto Sans TC",sans-serif;
-  --num-font:"Iansui","Arial Narrow",sans-serif;
+  --num-font:"Iansui","PingFang TC",sans-serif;
 }
 
 *{box-sizing:border-box}
@@ -79,21 +79,23 @@ body{
 .brandline-cn{
   font-family:var(--title-font);
   font-size:clamp(28px,5vw,44px);
-  font-weight:700;
+  font-weight:400;
   color:var(--ink-deep);
   letter-spacing:.06em;
   line-height:1;
   text-shadow:0 1px 0 rgba(255,255,255,.55);
+  -webkit-text-stroke:.35px currentColor;
 }
 
 .brandline-yura{
   font-family:var(--title-font);
   font-size:clamp(40px,6.3vw,66px);
   color:var(--pink);
-  font-weight:700;
+  font-weight:400;
   line-height:1;
   letter-spacing:.02em;
   text-shadow:0 1px 0 rgba(255,255,255,.48);
+  -webkit-text-stroke:.35px currentColor;
 }
 
 .title-wrap{
@@ -107,11 +109,12 @@ body{
   margin:8px 0 0;
   font-family:var(--title-font);
   font-size:clamp(38px,7.2vw,62px);
-  font-weight:700;
+  font-weight:400;
   color:var(--ink-deep);
   letter-spacing:.08em;
   line-height:1.12;
   text-shadow:0 2px 0 rgba(255,255,255,.42);
+  -webkit-text-stroke:.4px currentColor;
 }
 
 .title-divider{
@@ -191,23 +194,25 @@ body{
 }
 
 .card h2{
-  margin:0 0 14px;
-  font-size:27px;
-  color:var(--ink-deep);
-  font-weight:400;
+  margin:0 0 18px;
   font-family:var(--title-font);
-  letter-spacing:.06em;
+  font-size:clamp(28px,4.8vw,40px);
+  color:var(--ink-deep);
+  letter-spacing:.08em;
+  line-height:1.22;
+  font-weight:400;
+  -webkit-text-stroke:.35px currentColor;
   position:relative;
   z-index:1;
 }
 
 .card h3{
-  margin:16px 0 6px;
-  font-size:20px;
+  margin:22px 0 8px;
+  font-family:var(--body-font);
+  font-size:clamp(19px,3.3vw,24px);
   color:var(--ink-deep);
-  font-weight:400;
-  font-family:var(--title-font);
-  letter-spacing:.03em;
+  line-height:1.55;
+  font-weight:700;
   position:relative;
   z-index:1;
 }
@@ -218,7 +223,7 @@ p, li, .a, .item, .note, .chip, .q{
 }
 
 p{
-  margin:8px 0;
+  margin:0 0 10px;
   color:var(--text);
   font-size:18px;
 }
@@ -230,7 +235,7 @@ ul{
 
 li{
   font-family:var(--body-font);
-  margin:6px 0;
+  margin:0 0 10px;
   color:var(--text);
   font-size:18px;
 }
@@ -289,11 +294,11 @@ li{
 .qa:first-child{border-top:0}
 
 .q{
-  font-family:var(--title-font);
-  font-weight:900;
+  font-family:var(--body-font);
+  font-weight:700;
   color:var(--ink-deep);
-  margin-bottom:5px;
-  font-size:18px;
+  margin-bottom:6px;
+  font-size:21px;
   letter-spacing:.02em;
 }
 
@@ -321,13 +326,8 @@ li{
   .header{padding:10px 6px 20px}
   .card{padding:1.35cm; border-radius:20px}
   .card::before{inset:8px; border-radius:16px;}
-  .card h2{font-size:27px}
-  .card h3{font-size:18px}
-  p, li, .a, .item{font-size:15px}
-  .main-title{font-size:30px}
-  .title-sub{letter-spacing:.16em}
-  .price span{font-size:16px}
-  .price b{font-size:22px}
+  p, li, .a, .item{font-size:17px}
+  .q{font-size:19px}
 }
 
 .price-text{
@@ -360,6 +360,14 @@ li{
   margin:10px 0;
 }
 
+
+h1,h2,.main-title,.brandline-cn,.brandline-yura,.title-sub{
+  font-family:"ChenYuluoyan","PingFang TC","Noto Serif TC",serif !important;
+}
+body,p,li,h3,.item,.note,.qa,.q,.a,.price,.chips,.chip,.important-list,span,b,label{
+  font-family:"Iansui","PingFang TC","Noto Sans TC",sans-serif;
+}
+
 </style>
 </head>
 <body>
@@ -375,7 +383,7 @@ li{
         <div class="title-sub">事 前 說 明 書</div>
       </div>
       <p class="subline">給想好好理解、傳達與告別的你<br>在預約前先閱讀以下內容。</p>
-      <div class="price"><span>20 min</span><b>NT$2,200</b></div>
+      <div class="price"><span>30 min</span><b>NT$2,200</b></div>
     </header>
 
     <main class="cards">
@@ -416,7 +424,7 @@ li{
       <section class="card">
         <h2>服務資訊</h2>
         <div class="chips">
-          <span class="chip price-text">20 min</span>
+          <span class="chip price-text">30 min</span>
           <span class="chip price-text">NT$2,200</span>
           <span class="chip"><span class="emph">已離世的寵物</span></span>
           <span class="chip"><span class="emph">完成付款後保留時段</span></span>
