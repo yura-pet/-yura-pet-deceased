@@ -368,6 +368,80 @@ body,p,li,h3,.item,.note,.qa,.q,.a,.price,.chips,.chip,.important-list,span,b,la
   font-family:"Iansui","PingFang TC","Noto Sans TC",sans-serif;
 }
 
+
+/* Fillable reservation form */
+.form-grid{
+  display:grid;
+  gap:15px;
+}
+.form-field{
+  display:grid;
+  gap:7px;
+}
+.form-field label{
+  font-family:var(--body-font);
+  font-weight:700;
+  color:var(--ink-deep);
+  font-size:18px;
+}
+.form-field input,
+.form-field select,
+.form-field textarea{
+  width:100%;
+  border:1px solid rgba(126,149,174,.25);
+  border-radius:14px;
+  background:rgba(255,255,255,.72);
+  color:var(--ink-deep);
+  font-family:var(--body-font);
+  font-size:17px;
+  line-height:1.55;
+  padding:12px 14px;
+  outline:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.62);
+  -webkit-appearance:none;
+}
+.form-field textarea{
+  min-height:120px;
+  resize:vertical;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus{
+  border-color:rgba(215,154,130,.72);
+  box-shadow:0 0 0 3px rgba(215,154,130,.12);
+}
+.form-help{
+  margin-top:2px;
+  font-size:15px;
+  color:#718399;
+}
+.copy-button{
+  width:100%;
+  margin-top:6px;
+  min-height:48px;
+  border:1px solid rgba(215,154,130,.32);
+  border-radius:999px;
+  background:linear-gradient(180deg,rgba(248,233,223,.98),rgba(252,242,235,.98));
+  color:var(--ink-deep);
+  font-family:var(--body-font);
+  font-size:18px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(120,92,72,.09);
+}
+.copy-button:active{transform:translateY(1px)}
+.copy-status{
+  min-height:1.6em;
+  margin-top:8px;
+  text-align:center;
+  color:#718399;
+  font-size:15px;
+}
+@media(max-width:720px){
+  .form-field label,.copy-button{font-size:17px}
+  .form-field input,.form-field select,.form-field textarea{font-size:16px}
+}
+
 </style>
 </head>
 <body>
@@ -505,10 +579,31 @@ body,p,li,h3,.item,.note,.qa,.q,.a,.price,.chips,.chip,.important-list,span,b,la
 
       <section class="card">
         <h2>預約資訊</h2>
-        <div class="item"><span class="label"><span class="emph">寵物寶貝名稱：</span></span></div>
-        <div class="item"><span class="label"><span class="emph">服務類型：</span></span>離世溝通 ／ 離世溝通＋超度（擇一）</div>
-        <div class="item"><span class="label"><span class="emph">離世時間：</span></span></div>
-        <div class="item"><span class="label"><span class="emph">預約時段：</span></span></div>
+        <form class="form-grid" id="deceasedBooking" onsubmit="return false;">
+          <div class="form-field">
+            <label for="d_name">寵物寶貝名稱</label>
+            <input id="d_name" type="text" placeholder="請填毛孩名字">
+          </div>
+          <div class="form-field">
+            <label for="d_service">服務類型</label>
+            <select id="d_service">
+              <option value="">請選擇</option>
+              <option>離世溝通</option>
+              <option>離世溝通＋超度</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="d_date">離世時間</label>
+            <input id="d_date" type="text" placeholder="例如：2026/08/01">
+          </div>
+          <div class="form-field">
+            <label for="d_time">可配合預約時段</label>
+            <textarea id="d_time" placeholder="可以填 1～2 個方便的日期與時段"></textarea>
+          </div>
+          <div class="form-help">毛孩照片請回到 LINE 後一併傳送。填完後按下方按鈕即可複製。</div>
+          <button class="copy-button" type="button" onclick="yuraCopy('deceasedBooking','deceasedCopyStatus','【離世寵物溝通｜預約資料】', [['d_name','寵物寶貝名稱'],['d_service','服務類型'],['d_date','離世時間'],['d_time','可配合預約時段']])">複製預約資料</button>
+          <div class="copy-status" id="deceasedCopyStatus" aria-live="polite"></div>
+        </form>
         <div class="note">看完之後，回到 LINE 跟我說一聲。我會把最近還剩下的時間給你挑，時間確定了，再談匯款。若不確定是否適合預約，歡迎先詢問。</div>
       </section>
     </main>
@@ -528,5 +623,36 @@ body,p,li,h3,.item,.note,.qa,.q,.a,.price,.chips,.chip,.important-list,span,b,la
 
     <div class="footer">© Yura Pet Communication</div>
   </div>
+
+<script>
+function yuraCollect(formId, title, fields){
+  const form = document.getElementById(formId);
+  const lines = [title, ''];
+  fields.forEach(([id,label]) => {
+    const el = form.querySelector('#'+id);
+    const value = (el && el.value ? el.value.trim() : '') || '（未填）';
+    lines.push(label + '：' + value);
+  });
+  return lines.join('\n');
+}
+async function yuraCopy(formId, statusId, title, fields){
+  const text = yuraCollect(formId, title, fields);
+  const status = document.getElementById(statusId);
+  try{
+    if(navigator.clipboard && window.isSecureContext){
+      await navigator.clipboard.writeText(text);
+    }else{
+      const ta=document.createElement('textarea');
+      ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.focus(); ta.select();
+      document.execCommand('copy'); document.body.removeChild(ta);
+    }
+    status.textContent='已複製完成 ✨ 回到 LINE 直接貼上給我就可以了。';
+  }catch(e){
+    status.textContent='無法自動複製，請長按欄位內容手動複製後貼到 LINE。';
+  }
+}
+</script>
+
 </body>
 </html>
