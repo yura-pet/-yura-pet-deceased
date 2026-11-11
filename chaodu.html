@@ -1,0 +1,475 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f8f1f4"><title>Yura｜毛孩超渡服務介紹</title><style>
+
+@font-face {
+  font-family: "ChenYuluoyan";
+  src: url("./ChenYuluoyan.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Iansui";
+  src: url("./Iansui.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root{
+  --ink:#354a62;
+  --ink-deep:#314863;
+  --text:#4b647d;
+  --pink:#d79a82;
+  --pink-soft:rgba(248,233,223,.92);
+  --pink-soft-2:rgba(252,242,235,.94);
+  --white-card:rgba(255,250,246,.90);
+  --line:rgba(126,149,174,.20);
+  --shadow:0 16px 38px rgba(120,92,72,.12);
+  --title-font:"ChenYuluoyan","PingFang TC","Noto Serif TC",serif;
+  --body-font:"Iansui","PingFang TC","Noto Sans TC",sans-serif;
+  --num-font:"Iansui","PingFang TC",sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  font-family:var(--body-font);
+  line-height:1.95;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  background:
+    linear-gradient(rgba(255,244,238,.74), rgba(255,246,240,.74)),
+    url("yura-background.jpg") center top / cover fixed no-repeat;
+}
+
+.wrap{
+  font-family:var(--body-font);
+  width:min(880px, calc(100% - 24px));
+  margin:0 auto;
+  padding:18px 0 34px;
+}
+
+.header{
+  text-align:center;
+  padding:22px 12px 30px;
+  background:linear-gradient(180deg, rgba(255,239,228,.62), rgba(255,246,240,.22));
+  border-radius:28px;
+  backdrop-filter: blur(5px);
+}
+
+.brandline{
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:8px;
+}
+
+.brandline-cn{
+  font-family:var(--title-font);
+  font-size:clamp(28px,5vw,44px);
+  font-weight:400;
+  color:var(--ink-deep);
+  letter-spacing:.06em;
+  line-height:1;
+  text-shadow:0 1px 0 rgba(255,255,255,.55);
+  -webkit-text-stroke:.35px currentColor;
+}
+
+.brandline-yura{
+  font-family:var(--title-font);
+  font-size:clamp(40px,6.3vw,66px);
+  color:var(--pink);
+  font-weight:400;
+  line-height:1;
+  letter-spacing:.02em;
+  text-shadow:0 1px 0 rgba(255,255,255,.48);
+  -webkit-text-stroke:.35px currentColor;
+}
+
+.title-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+}
+
+.main-title{
+  margin:8px 0 0;
+  font-family:var(--title-font);
+  font-size:clamp(38px,7.2vw,62px);
+  font-weight:400;
+  color:var(--ink-deep);
+  letter-spacing:.08em;
+  line-height:1.12;
+  text-shadow:0 2px 0 rgba(255,255,255,.42);
+  -webkit-text-stroke:.4px currentColor;
+}
+
+.title-divider{
+  width:118px;
+  height:2px;
+  background:linear-gradient(90deg, transparent, rgba(215,154,130,.85), transparent);
+  margin:2px 0;
+}
+
+.title-sub{
+  font-family:var(--title-font);
+  font-size:clamp(18px,3.2vw,22px);
+  color:#60758e;
+  letter-spacing:.22em;
+  font-weight:700;
+}
+
+.subline{
+  margin:10px auto 0;
+  max-width:560px;
+  color:#6d7e90;
+  font-size:17px;
+  line-height:1.9;
+  text-shadow:0 1px 0 rgba(255,255,255,.35);
+}
+
+.price{
+  margin-top:18px;
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 18px;
+  border-radius:999px;
+  background:linear-gradient(180deg, var(--pink-soft), var(--pink-soft-2));
+  color:var(--ink-deep);
+  box-shadow:0 8px 22px rgba(104,95,109,.08);
+}
+
+.price span{
+  font-family:var(--body-font);
+  font-size:16px;
+  color:var(--ink-deep);
+  letter-spacing:.02em;
+  font-weight:700;
+}
+
+.price b{
+  font-family:var(--body-font);
+  font-size:21px;
+  color:var(--ink-deep);
+  letter-spacing:.02em;
+  font-weight:700;
+}
+
+.cards{
+  display:grid;
+  gap:16px;
+}
+
+.card{
+  background:var(--white-card);
+  border:1px solid rgba(255,255,255,.85);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(8px);
+  border-radius:26px;
+  padding:3cm;
+  position:relative;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border:1px dashed rgba(126,149,174,.12);
+  border-radius:22px;
+  pointer-events:none;
+}
+
+.card h2{
+  margin:0 0 18px;
+  font-family:var(--title-font);
+  font-size:clamp(28px,4.8vw,40px);
+  color:var(--ink-deep);
+  letter-spacing:.08em;
+  line-height:1.22;
+  font-weight:400;
+  -webkit-text-stroke:.35px currentColor;
+  position:relative;
+  z-index:1;
+}
+
+.card h3{
+  margin:22px 0 8px;
+  font-family:var(--body-font);
+  font-size:clamp(19px,3.3vw,24px);
+  color:var(--ink-deep);
+  line-height:1.55;
+  font-weight:700;
+  position:relative;
+  z-index:1;
+}
+
+p, li, .a, .item, .note, .chip, .q{
+  position:relative;
+  z-index:1;
+}
+
+p{
+  margin:0 0 10px;
+  color:var(--text);
+  font-size:18px;
+}
+
+ul{
+  margin:10px 0;
+  padding-left:1.25em;
+}
+
+li{
+  font-family:var(--body-font);
+  margin:0 0 10px;
+  color:var(--text);
+  font-size:18px;
+}
+
+.note{
+  font-family:var(--body-font);
+  margin-top:12px;
+  padding:14px 16px;
+  background:linear-gradient(180deg, var(--pink-soft), rgba(250,236,228,.82));
+  border-radius:16px;
+  font-size:17px;
+  color:var(--text);
+}
+
+.item{
+  font-family:var(--body-font);
+  padding:12px 0;
+  border-top:1px dashed var(--line);
+  color:var(--text);
+  font-size:18px;
+}
+
+.item:first-child{border-top:0}
+
+.label{
+  font-weight:700;
+  color:var(--ink-deep);
+  font-family:var(--title-font);
+  letter-spacing:.02em;
+}
+
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:6px;
+}
+
+.chip{
+  font-family:var(--body-font);
+  display:inline-block;
+  background:linear-gradient(180deg, var(--pink-soft), var(--pink-soft-2));
+  border-radius:999px;
+  padding:7px 12px;
+  font-size:15px;
+  color:var(--ink-deep);
+  font-family:var(--num-font);
+  letter-spacing:.03em;
+}
+
+.qa{
+  padding:12px 0;
+  border-top:1px solid var(--line);
+}
+
+.qa:first-child{border-top:0}
+
+.q{
+  font-family:var(--body-font);
+  font-weight:700;
+  color:var(--ink-deep);
+  margin-bottom:6px;
+  font-size:21px;
+  letter-spacing:.02em;
+}
+
+.a{
+  font-family:var(--body-font);
+  color:var(--text);
+  font-size:18px;
+}
+
+.footer{
+  text-align:center;
+  color:#7e8592;
+  font-size:12px;
+  padding-top:18px;
+  font-family:var(--num-font);
+  letter-spacing:.06em;
+}
+
+@media (max-width:960px){
+  .card{padding:2.2cm;}
+}
+
+@media (max-width:720px){
+  .wrap{width:min(100% - 18px, 880px)}
+  .header{padding:10px 6px 20px}
+  .card{padding:1.35cm; border-radius:20px}
+  .card::before{inset:8px; border-radius:16px;}
+  p, li, .a, .item{font-size:17px}
+  .q{font-size:19px}
+}
+
+.price-text{
+  font-family:var(--body-font) !important;
+  font-weight:700;
+  letter-spacing:.02em;
+}
+
+
+.emph{
+  font-family:var(--body-font) !important;
+  font-weight:800 !important;
+  font-size:1.12em;
+  color:var(--ink-deep);
+  letter-spacing:.01em;
+}
+.emph-block{
+  font-family:var(--body-font) !important;
+  font-weight:800 !important;
+  font-size:1.12em;
+  color:var(--ink-deep);
+  letter-spacing:.01em;
+  display:inline-block;
+}
+.important-list{
+  margin:8px 0 0;
+  padding-left:1.2em;
+}
+.important-list li{
+  margin:10px 0;
+}
+
+
+h1,h2,.main-title,.brandline-cn,.brandline-yura,.title-sub{
+  font-family:"ChenYuluoyan","PingFang TC","Noto Serif TC",serif !important;
+}
+body,p,li,h3,.item,.note,.qa,.q,.a,.price,.chips,.chip,.important-list,span,b,label{
+  font-family:"Iansui","PingFang TC","Noto Sans TC",sans-serif;
+}
+
+
+/* Fillable reservation form */
+.form-grid{
+  display:grid;
+  gap:15px;
+}
+.form-field{
+  display:grid;
+  gap:7px;
+}
+.form-field label{
+  font-family:var(--body-font);
+  font-weight:700;
+  color:var(--ink-deep);
+  font-size:18px;
+}
+.form-field input,
+.form-field select,
+.form-field textarea{
+  width:100%;
+  border:1px solid rgba(126,149,174,.25);
+  border-radius:14px;
+  background:rgba(255,255,255,.72);
+  color:var(--ink-deep);
+  font-family:var(--body-font);
+  font-size:17px;
+  line-height:1.55;
+  padding:12px 14px;
+  outline:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.62);
+  -webkit-appearance:none;
+}
+.form-field textarea{
+  min-height:120px;
+  resize:vertical;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus{
+  border-color:rgba(215,154,130,.72);
+  box-shadow:0 0 0 3px rgba(215,154,130,.12);
+}
+.form-help{
+  margin-top:2px;
+  font-size:15px;
+  color:#718399;
+}
+.copy-button{
+  width:100%;
+  margin-top:6px;
+  min-height:48px;
+  border:1px solid rgba(215,154,130,.32);
+  border-radius:999px;
+  background:linear-gradient(180deg,rgba(248,233,223,.98),rgba(252,242,235,.98));
+  color:var(--ink-deep);
+  font-family:var(--body-font);
+  font-size:18px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(120,92,72,.09);
+}
+.copy-button:active{transform:translateY(1px)}
+.copy-status{
+  min-height:1.6em;
+  margin-top:8px;
+  text-align:center;
+  color:#718399;
+  font-size:15px;
+}
+@media(max-width:720px){
+  .form-field label,.copy-button{font-size:17px}
+  .form-field input,.form-field select,.form-field textarea{font-size:16px}
+}
+
+
+/* Integrated memorial ritual details — inherit original Yura font families */
+.chaodu-jump{display:inline-block;margin-top:8px;padding:9px 18px;border-radius:999px;background:var(--pink-soft);color:var(--ink-deep);font-weight:700;text-decoration:none;border:1px solid rgba(215,154,130,.3)}
+.chaodu-subsection{position:relative;z-index:1;padding:23px 0;border-top:1px dashed var(--line)}
+.chaodu-subsection h2{font-size:clamp(25px,4vw,34px);margin:0 0 14px}
+.chaodu-subsection .lead{font-weight:700}
+.chaodu-subsection .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.chaodu-subsection .tile{padding:16px;background:var(--pink-soft-2);border-radius:16px;color:var(--text);font-size:17px}
+.chaodu-subsection .tile strong{display:block;color:var(--ink-deep)}
+.chaodu-subsection .quote,.chaodu-subsection .muted{padding:15px 17px;margin:16px 0;border-radius:16px;background:var(--pink-soft);color:var(--text);font-size:17px}
+.chaodu-subsection .muted{background:rgba(230,238,245,.8)}
+.chaodu-subsection .steps{counter-reset:chaodu-step;list-style:none;padding:0}
+.chaodu-subsection .steps li{counter-increment:chaodu-step;position:relative;padding:0 0 16px 45px;margin-bottom:16px;border-bottom:1px dashed var(--line)}
+.chaodu-subsection .steps li:before{content:counter(chaodu-step);position:absolute;left:0;top:0;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:var(--pink-soft);color:var(--ink-deep);font-weight:700}
+.chaodu-subsection .steps strong{display:block}
+.chaodu-subsection details{padding:14px 0;border-top:1px dashed var(--line)}
+.chaodu-subsection summary{cursor:pointer;color:var(--ink-deep);font-size:19px;font-weight:700}
+.chaodu-subsection details p{padding:9px 8px 0 14px}
+.chaodu-subsection .small{font-size:15px;color:#718399}
+@media(max-width:720px){.chaodu-subsection .grid{grid-template-columns:1fr}.chaodu-subsection .tile{font-size:16px}}
+
+
+.chaodu-back{display:inline-block;margin:12px 0;padding:9px 18px;border-radius:999px;background:var(--pink-soft);color:var(--ink-deep);font-weight:700;text-decoration:none}
+.chaodu-subsection:first-of-type{border-top:0}
+</style></head><body><div class="wrap"><header class="header"><div class="brandline"><div class="brandline-cn">寵物溝通師</div><div class="brandline-yura">Yura</div></div><div class="title-wrap"><div class="main-title">毛孩超渡服務</div><div class="title-divider"></div><div class="title-sub">服 務 說 明</div></div><p class="subline">了解這項儀式在做什麼、誰適合考慮<br>不必急著做決定</p><div class="price"><span>超渡科儀</span><b>NT$5,000</b></div></header><main class="cards"><section class="card">
+        <h2>毛孩超渡｜完整服務介紹</h2>
+        <p>如果你想知道超渡究竟在替毛孩做什麼、哪些情況適合考慮，以及儀式如何進行，以下整理了 Luna 老師與李誠卿道長的服務說明。</p>
+        <div class="note">超渡並非強制，也不代表沒有做就是對不起毛孩。可以先慢慢了解，再決定是否需要。</div>
+<div class="chaodu-subsection" id="chaodu-0"><h2>超渡，是在替離世的毛孩做什麼？</h2><p class="lead">這項服務依照 Luna 老師與李誠卿道長的梅山動物科儀，為離世毛孩進行引路與接引。</p><p>依老師的信仰與儀式說明，會召請專門面向動物的「畜牧兵馬」，由狼犬開路、鸞鳥引魂，協助毛孩前往後續安頓的地方。</p><p>它與「離世寵物溝通」不同：溝通偏向聆聽、理解與傳達心意；超渡則是一套有特定信仰背景與程序的儀式。</p><div class="quote">超渡不是因為毛孩一定有問題，也不是因為你沒有做好什麼。<br/><strong>這是一個可以了解、評估，再自行選擇的方式。</strong></div><p class="small">本頁關於靈魂、接引與轉世的內容，均屬老師的宗教信仰與服務說明，並非可由科學證實的結果。</p></div>
+<div class="chaodu-subsection" id="chaodu-1"><h2>哪些人可以考慮這項服務？</h2><div class="grid"><div class="tile"><strong>毛孩剛離開</strong>希望在告別後，為牠安排一份祝福，讓心意有個安放的地方。</div><div class="tile"><strong>離開已經一段時間</strong>仍然很掛念牠，想了解老師所提供的儀式與接引方式。</div><div class="tile"><strong>心裡還有遺憾</strong>有沒說完的感謝、歉意或想念，希望好好整理這些心情。</div><div class="tile"><strong>曾做過其他儀式</strong>想知道專門為動物進行的梅山科儀與既有法會有何不同。</div></div><div class="quote"><strong>沒有做超渡，不代表對不起牠。</strong><br/>你不需要因為愧疚、恐懼，或是別人有做，就覺得自己也一定要安排。</div></div>
+<div class="chaodu-subsection" id="chaodu-2"><h2>哪些情況，不需要急著做？</h2><ul><li>如果只是擔心毛孩受苦，先了解服務內容，不必立刻付費。</li><li>如果你目前只想和牠說說話，可以先考慮離世寵物溝通。</li><li>如果毛孩尚未準備好，依老師流程會先確認狀態，再評估是否安排儀式。</li></ul><p>老師表示，少數毛孩可能仍有牽掛，或希望暫留在「萬靈幡」修持。遇到這類情況，會先等待，並持續確認狀態，而不是直接進行儀式。</p><div class="muted">你可以很愛牠，也可以選擇不做超渡。<br/>這兩件事並不衝突。</div></div>
+<div class="chaodu-subsection" id="chaodu-3"><h2>超渡會怎麼進行？</h2><ol class="steps"><li><strong>預約、付款與提供資料</strong>確認安排意願後，提供飼主與毛孩資料，作為老師進行事前確認及儀式準備的依據。</li><li><strong>先確認毛孩的狀態</strong>老師會依其溝通方式確認毛孩是否準備好離開，以及是否仍有牽掛。若尚未適合，會先等待。</li><li><strong>安排儀式日期</strong>確認可以進行後，再通知儀式日期。如有額外紙錢或供品需求，也會在此階段討論。</li><li><strong>進行梅山動物科儀</strong>由老師或道長依安排於壇前行法，召請畜牧兵馬，依其傳承進行毛孩接引。</li><li><strong>完成後回覆</strong>提供儀式照片，以及老師依其方式提供的轉世方向與時間推估等資訊。</li></ol><p class="small">依老師原有說明，飼主無須親自到場；實際安排以預約確認為準。</p></div>
+<div class="chaodu-subsection" id="chaodu-4"><h2>預約前，需要準備什麼？</h2><ul><li>飼主的照片與姓名</li><li>飼主國曆出生日期、出生時間、出生地</li><li>飼主目前居住地址</li><li>毛孩的照片、名字、離世日期與時間</li></ul><h3>也可以寫一封給毛孩的信</h3><p>老師建議，可以把心裡的感謝、歉意、想念，或來不及說的話寫下來。這封信不需要完美，只要是你真正想對牠說的話。</p><p class="small">涉及個人資料，請僅透過預約時確認的安全管道提供；實際資料需求以服務窗口通知為準。</p></div>
+<div class="chaodu-subsection" id="chaodu-5"><h2>儀式完成後，會收到什麼？</h2><ul><li>法事進行的照片</li><li>依老師說明提供的轉世推算：例如大致物種方向與時間估計</li><li>依老師原有服務說明，道長會於統一時間點亮「清潔平安燈」</li></ul><div class="muted">轉世推算屬老師信仰實踐中的估計，並非保證；不能指定毛孩下一世的樣貌、物種，也不能承諾一定會回到原飼主身邊。</div></div>
+<div class="chaodu-subsection" id="chaodu-fee"><h2>服務費用</h2><div class="price"><span>毛孩超渡</span><b>NT$5,000</b></div><p>依老師的服務說明，包含超渡科儀與儀式後的轉世推算；如需額外紙錢或供品，會事先告知，並依實際成本計費。</p><p>離世寵物溝通屬另外的服務，需另行預約及計費。</p></div>
+<div class="chaodu-subsection" id="chaodu-7"><h2>你可能還想知道</h2><details><summary>不做超渡，毛孩會不會怪我？</summary><p>依 Luna 老師的說法，不做超渡並不代表虧欠毛孩。這是一項可以選擇的服務，不是必須完成的責任。</p></details><details><summary>如果毛孩還不想離開呢？</summary><p>依老師流程，會先確認狀態並等待；部分毛孩可能選擇暫留萬靈幡修持，之後再討論適合的時間。</p></details><details><summary>已經做過寺廟或寵物殯葬法會，還可以做嗎？</summary><p>老師認為先前的儀式有其意義；這項服務是另外一套以動物為對象的科儀。是否需要再做，可以先了解後再決定。</p></details><details><summary>一定要到場嗎？</summary><p>依老師原有說明，飼主不需要親自到場，提供資料即可依流程安排。</p></details><details><summary>能知道牠下輩子會變成什麼嗎？</summary><p>老師提供的是大致方向與時間的推估，無法指定物種，也不能保證再次相遇。</p></details><details><summary>可以一起預約離世寵物溝通嗎？</summary><p>可以詢問搭配安排，但溝通與超渡分開計費。溝通是理解與陪伴，超渡是依宗教科儀進行的儀式。</p></details><details><summary>超渡能保證一定投胎或解決所有牽掛嗎？</summary><p>不能保證。這項服務屬於老師所實踐的宗教信仰，儀式效果與轉世推估不應被視為可驗證的承諾。</p></details></div>
+<div class="chaodu-subsection" id="chaodu-8"><h2>關於 Luna 老師與李誠卿道長</h2><p>本頁服務內容整理自 Luna 老師對動物超渡的介紹。依老師說明，相關科儀由 Luna 老師及「金瀾言卿」李誠卿道長依傳承與安排進行。</p><p>老師選擇梅山動物科儀，是因其認為這套傳承具有面向動物魂魄的儀式與畜牧兵馬系統。Yura 將重要服務資訊集中在這一頁，方便你了解內容，再決定是否進一步詢問。</p></div>
+      </section><section class="card"><h2>想進一步詢問嗎？</h2><p>可以回到離世寵物溝通說明書查看預約方式，或透過原本與 Yura 聯絡的 LINE 詢問。</p><p><a class="chaodu-back" href="index.html">← 返回離世寵物溝通說明書</a></p></section></main><div class="footer">© Yura Pet Communication</div></div></body></html>
